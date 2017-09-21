@@ -15,7 +15,7 @@
 \insertshortauthor
 \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{title  in head/foot}
 \usebeamerfont{title in head/foot}
-Numerical Analysis I \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+Fundamental of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
 \usebeamerfont{date in head/foot}
 \hspace*{2em} 
 \insertframenumber{} / \inserttotalframenumber\hspace*{2em}
