@@ -1,0 +1,1673 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{Boadilla}
+  
+\setbeamertemplate{footline}
+{\leavevmode
+\hbox{\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+\usebeamerfont{author in head/ foot}
+\insertshortauthor
+\end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{title  in head/foot}
+\usebeamerfont{title in head/foot}
+Numerical Analysis I \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+\usebeamerfont{date in head/foot}
+\hspace*{2em} 
+\insertframenumber{} / \inserttotalframenumber\hspace*{2em}
+\end{beamercolorbox}}
+\vskip0pt
+}
+\setbeamertemplate{navigation symbols}{} 
+
+\usepackage{algorithmic}
+%\def\vec#1{\mbox{\boldmath $#1$}}
+\def\vec#1{#1}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+AMS 595/691: Fundamentals of Computing: Part II
+\end_layout
+
+\begin_layout Subtitle
+Lecture 1: Overview of Python
+\end_layout
+
+\begin_layout Author
+Xiangmin Jiao
+\end_layout
+
+\begin_layout Institute
+Stony Brook University
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MATLAB vs.
+ Python
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Why Use either Python or MATLAB?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Similarities
+\end_layout
+
+\begin_layout Itemize
+Very high-level, interpreted programming languages
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dynamic typing
+\end_layout
+
+\begin_layout Itemize
+Automatic memory management (garbage collection)
+\end_layout
+
+\begin_layout Itemize
+Code can be modified/generated on the fly
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Can be used for scripting or complicated modules/applications
+\end_layout
+
+\begin_layout Itemize
+Great for prototyping
+\end_layout
+
+\begin_layout Itemize
+Have many packages available, with different focuses
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Why Use Python instead of MATLAB, and Vice Versa?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Differences
+\end_layout
+
+\begin_layout Itemize
+The most fundamental difference: MATLAB uses pass-by-value (copy-on-write),
+ whereas Python uses pass-by-reference
+\end_layout
+
+\begin_layout Itemize
+MATLAB is better for numerical computations at the language level (although
+ Python packages NumPy/SciPy can perform similar tasks)
+\end_layout
+
+\begin_layout Itemize
+Python is object-oriented by design, often used for systems programming,
+ text processing, web programming, etc.
+\end_layout
+
+\begin_layout Itemize
+Python is often used as 
+\begin_inset Quotes eld
+\end_inset
+
+gluing
+\begin_inset Quotes erd
+\end_inset
+
+ language to link packages written in other languages (although MATLAB can
+ also call C/C++, Fortran, Java and vice versa)
+\end_layout
+
+\begin_layout Itemize
+Python is open-source and more portable, but MATLAB is proprietary (Octave
+ is open-source and MATLAB-compatible at language level)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Running Python vs.
+ MATLAB
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MATLAB has built-in GUI; matlab command starts GUI by default
+\end_layout
+
+\begin_layout Itemize
+In contrast, Python itself starts in shell mode (text mode)
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+python: basic python shell (preinstalled in Linux/Mac)
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "ipython"
+target "http://ipython.org"
+
+\end_inset
+
+
+\color inherit
+: powerful interactive shell with help, auto completion, etc.
+ 
+\end_layout
+
+\begin_layout Itemize
+Try on 
+\color blue
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://tmpnb.org
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, select new–>terminal, and run commands python2.7, python3.5, and ipython
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+External GUI environments are available for Python, such as
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter Notebook"
+target "http://www.jupyter.org"
+
+\end_inset
+
+
+\color inherit
+: a web app that allows you to create and share documents with live code,
+ equations, visualizations, commentary, etc.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Spyder"
+target "https://pythonhosted.org/spyder/"
+
+\end_inset
+
+
+\color inherit
+: Scientific PYthon Development EnviRonment, with advanced editing, interactive
+ testing, debugging and introspection features, and integrated support for
+ IPython, NumPy (linear algebra), 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "SciPy"
+target "http://scipy.org"
+
+\end_inset
+
+
+\color inherit
+ (signal and image processing) or matplotlib (interactive 2D/3D plotting).
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "PyCharm"
+target "https://www.jetbrains.com/pycharm/"
+
+\end_inset
+
+
+\color inherit
+: Popular for professional developers in industry
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Modularity and Namespace
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In MATLAB, all functions in path can be used directly
+\end_layout
+
+\begin_layout Itemize
+In Python, except for built-in functions, functions and variables are in
+ modules, and you must import a module before you can use it
+\end_layout
+
+\begin_layout Itemize
+Try it out:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Start octave at 
+\color blue
+http://octave-online.net
+\color inherit
+, and run:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+sin(1)
+\end_layout
+
+\begin_layout Itemize
+cosd(45)
+\end_layout
+
+\begin_layout Itemize
+path
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Start a python shell at 
+\color blue
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://tmpnb.org/
+\end_layout
+
+\end_inset
+
+
+\color inherit
+, and run:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+import
+\series default
+ math; math.sin(1)
+\end_layout
+
+\begin_layout Itemize
+math.cos(math.radians(45))
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+import
+\series default
+ sys; sys.path
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Python can also import function names into current name space; e.g.:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+from
+\series default
+ math 
+\series bold
+import
+\series default
+ sin; sin(1)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Q: What are the pros and cons of the two approaches?
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Convenience vs.
+ name conflicts
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Operators in MATLAB vs Python
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Plain Layout
+\align center
+Now you can use Python as a basic calculator, like MATLAB.
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MATLAB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Python
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+basic arithmetic
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
++, -, *, /
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+power
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+^, .^
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+**
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+logical
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+&&, ||, ~
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+and, or, not
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+array indexing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x(a,b); 1-based
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x[a,b]; 0-based
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+assign
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= (copy)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+= (alias for mutable objects)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Q: What are the values of 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ from following codes?
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+MATLAB code:
+\series bold
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x = [1, 2];
+\end_layout
+
+\begin_layout Plain Layout
+
+y = x; y(1) = -1;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+Python code:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x = [1, 2]
+\end_layout
+
+\begin_layout Plain Layout
+
+y = x; y[1] = -1
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Pause
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.5cm}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x==[1,2]; y==[-1,2];
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{1cm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+x==[1,-1]; y==[1,-1]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Note: In Python, use y=copy.copy(x) and y[0]=-1 to reproduce MATLAB
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Overview of Python
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Python 2.x vs.
+ Python 3.x
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mostly about cleaning up the language and making things consistent 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+e.g.
+ print is a statement in python 2.x but a function in 3.x
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Some trivial differences
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+.pyc files are now stored in a __pycache__ directory
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Some gotchas, for example
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+1/2 will give different results between python 2 and 3
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+It is possible to write code that works with both python 2 and 3, often
+ by importing from __future__.
+ For example,
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In python 2.6+, use statement
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+from __future__ import print_function
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+and then use the new print() style
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+See 
+\color blue
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://docs.python.org/3/whatsnew/3.0.html
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ and 
+\color blue
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://wiki.python.org/moin/Python2orPython3
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+We will be using Python 3.x for this class
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Installing and Running IPython
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Installation
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Install 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "IPython"
+target "https://ipython.org/"
+
+\end_inset
+
+
+\color inherit
+, 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter Notebook"
+target "http://www.jupyter.org"
+
+\end_inset
+
+
+\color inherit
+ and 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Spyder"
+target "https://pythonhosted.org/spyder/"
+
+\end_inset
+
+
+\color inherit
+ via 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Anaconda3"
+target "https://www.continuum.io/downloads"
+
+\end_inset
+
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Itemize
+Add <anaconda_root>/bin to your path (e.g., $HOME/anaconda/bin)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+IPython Shell: a powerful interactive shell for Python
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+type 
+\family typewriter
+ipython
+\family default
+ at prompt to start
+\end_layout
+
+\begin_layout Itemize
+type 
+\family typewriter
+%quickref
+\family default
+ to see an overview
+\end_layout
+
+\begin_layout Itemize
+Build-in help with ? after function or variable name.
+ For example:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+math.sin? 
+\family default
+(after import math)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+x?
+\family default
+ (after assigning x=1)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Magics (
+\family typewriter
+%lsmagic
+\family default
+ lists all the magic functions), e.g.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+import numpy as np
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+%timeit
+\series default
+ np.linalg.eigvals(np.random.rand(100,100))
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tab completion
+\end_layout
+
+\begin_layout Itemize
+Run system commands (prefix with !)
+\end_layout
+
+\begin_layout Itemize
+Last 3 output objects are referred to as _, __, ___ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Jupyter Notebooks
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A web-based environment that combines code and output, plots, plain text/stylize
+d headings, \SpecialChar LaTeX
+ (later versions), etc.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Notebooks can be saved and shared 
+\end_layout
+
+\begin_layout Itemize
+Viewable on the web via: 
+\color blue
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://nbviewer.ipython.org/
+\end_layout
+
+\end_inset
+
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Itemize
+Provides a complete view of your entire workflow
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter Notebook"
+target "http://www.jupyter.org"
+
+\end_inset
+
+
+\color inherit
+ (previously known as IPython Notebook)
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+type 
+\family typewriter
+jupyter notebook
+\family default
+ (or 
+\family typewriter
+jupyter-notebook
+\family default
+) at prompt
+\end_layout
+
+\begin_layout Itemize
+We will provide notebooks for most lectures
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Topics to Be Covered
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Data types, data structures, and exceptions
+\end_layout
+
+\begin_layout Itemize
+Control flow and functions
+\end_layout
+
+\begin_layout Itemize
+File I/O and regular expressions
+\end_layout
+
+\begin_layout Itemize
+Scripts and modules; debugging and testing
+\end_layout
+
+\begin_layout Itemize
+Array computation and curve plotting
+\end_layout
+
+\begin_layout Itemize
+Numerical and symbolic computations
+\end_layout
+
+\begin_layout Itemize
+Data analysis with Pandas
+\end_layout
+
+\begin_layout Itemize
+Object-oriented programming
+\end_layout
+
+\begin_layout Itemize
+Building Python applications and language interoperability
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Basic Data Types
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Basic Data Types
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Python has basic data types as most other languages: integer, floating point,
+ complex, strings
+\end_layout
+
+\begin_layout Itemize
+Built-in numbers
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+int
+\family default
+ has variable length (in Python 2.x, 
+\family typewriter
+long
+\family default
+ for variable length)
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+float
+\family default
+ is double precision
+\end_layout
+
+\begin_layout Itemize
+complex uses 'j' for imaginary parts
+\end_layout
+
+\begin_layout Itemize
+More integer and float types are provided in NumPy
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Strings
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use triple quotes for multiline strings
+\end_layout
+
+\begin_layout Itemize
+Escape characters and raw strings
+\end_layout
+
+\begin_layout Itemize
+'+' for concatenation and '*' for replication
+\end_layout
+
+\begin_layout Itemize
+0-based indexing; negative indexing; slicing excludes the end
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+All types are classes
+\end_layout
+
+\begin_layout Itemize
+Variables are case sensitive
+\end_layout
+
+\begin_layout Itemize
+Demo:
+\color blue
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook on data types"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-datatypes.ipynb"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

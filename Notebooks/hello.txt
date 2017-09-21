@@ -1,0 +1,4 @@
+Hello, this is a line of text. Its rather boring, but its all I have.
+This is a second statement.This is the third statement.
+This is a real new line.
+This is another real new line.

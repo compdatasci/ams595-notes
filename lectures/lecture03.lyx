@@ -1,0 +1,854 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{Boadilla}
+  
+\setbeamertemplate{footline}
+{\leavevmode
+\hbox{\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+\usebeamerfont{author in head/ foot}
+\insertshortauthor
+\end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{title  in head/foot}
+\usebeamerfont{title in head/foot}
+Numerical Analysis I \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+\usebeamerfont{date in head/foot}
+\hspace*{2em} 
+\insertframenumber{} / \inserttotalframenumber\hspace*{2em}
+\end{beamercolorbox}}
+\vskip0pt
+}
+\setbeamertemplate{navigation symbols}{} 
+
+\usepackage{algorithmic}
+%\def\vec#1{\mbox{\boldmath $#1$}}
+\def\vec#1{#1}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+AMS 595: Fundamentals of Computing: Part II
+\end_layout
+
+\begin_layout Subtitle
+Lecture 3: Control Flow and Functions
+\end_layout
+
+\begin_layout Author
+Xiangmin Jiao
+\end_layout
+
+\begin_layout Institute
+Stony Brook University
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Control Flow
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Conditionals: 
+\family typewriter
+if-elif-else
+\family default
+ branches
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nonzero value and nonempty containers are treated as 
+\family typewriter
+True
+\end_layout
+
+\begin_layout Itemize
+Zero value and empty containers are treated as 
+\family typewriter
+False
+\end_layout
+
+\begin_layout Itemize
+Special value 
+\family typewriter
+None
+\family default
+ is treated as 
+\family typewriter
+False
+\end_layout
+
+\begin_layout Itemize
+No switch/case statement in Python
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The 
+\family typewriter
+while
+\family default
+-loop is similar to MATLAB
+\end_layout
+
+\begin_layout Itemize
+The 
+\family typewriter
+for
+\family default
+-loop typically loops through a range, a list, or a dictionary
+\end_layout
+
+\begin_layout Itemize
+The 
+\family typewriter
+break
+\family default
+ and 
+\family typewriter
+continue
+\family default
+ statements are similar to MATLAB
+\end_layout
+
+\begin_layout Itemize
+List comprehensions provide a compact way to initialize lists
+\end_layout
+
+\begin_layout Itemize
+Demo: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook on control flows"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-control-flow.ipynb"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Functions
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Defined by 
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+def fun_name(arglist):
+\end_layout
+
+\begin_layout Plain Layout
+
+    '''doc-string'''
+\end_layout
+
+\begin_layout Plain Layout
+
+    statements ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Arguments
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mutable objects are passed by reference
+\end_layout
+
+\begin_layout Itemize
+Can have optional arguments with default values
+\end_layout
+
+\begin_layout Itemize
+Mutable default arguments are evaluated only once; immutable default arguments
+ are evaluated for each call
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Return values
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Can return an object (reference)
+\end_layout
+
+\begin_layout Itemize
+Can return multiple values via a tuple
+\end_layout
+
+\begin_layout Itemize
+If no explicit return value, then return 
+\family typewriter
+None
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A function has its doc-string, used by the help system
+\end_layout
+
+\begin_layout Itemize
+Demo: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook on functions"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-functions.ipynb"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Scope and Namespace
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A 
+\emph on
+namespace
+\emph default
+ is a mapping from names to objects.
+ A 
+\emph on
+scope
+\emph default
+ is a region of a Python program where a namespace is directly accessible.
+\end_layout
+
+\begin_layout Itemize
+Each module (or file) has its own 
+\begin_inset Quotes eld
+\end_inset
+
+global
+\begin_inset Quotes erd
+\end_inset
+
+ namespace
+\end_layout
+
+\begin_layout Itemize
+Each function has their own namespaces
+\end_layout
+
+\begin_layout Itemize
+Within a function, if a variable is not found local scope, Python searches
+ the variable in its enclosing scope (e.g., the global namespace of the module
+ containing the function)
+\end_layout
+
+\begin_layout Itemize
+Python allows nested functions, like MATLAB
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Nested function is only accessible from parent function
+\end_layout
+
+\begin_layout Itemize
+However, unlike MATLAB, nested sub-function cannot access variables in parent
+ function
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+To learn more about scope, see 
+\family typewriter
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Python documentation"
+target "https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Recursion vs.
+ Iteration
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recursion (via recursive functions) and iteration (via loops) can both achieve
+ repetition in programming
+\end_layout
+
+\begin_layout Itemize
+Function calls involve creating and maintaining stack frames (see
+\family typewriter
+\color blue
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "visualization"
+target "http://www.pythontutor.com/visualize.html#code=def%20sumList(theList%29%3A%0A%20%20%20%20if%20(theList%3D%3D%5B%5D%29%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20theList%5B0%5D%20%2B%20sumList(theList%5B1%3A%5D%29%0A%0A%0Adef%20go(%29%3A%0A%20%20%20%20total%20%3D%20sumList(%5B10,%2020,%2030%5D%29%0A%20%20%20%20print(%22total%3D%22,%20total%29%0A%0A%0Ago(%29%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+
+\end_inset
+
+
+\family default
+\color inherit
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recursion is more expensive and uses more memory than iteration
+\end_layout
+
+\begin_layout Itemize
+Depth of recursion is limited by available memory
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Recursion can be converted to iteration for faster execution
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Approach 1: Brute-force using stack to simulate stack frames
+\end_layout
+
+\begin_layout Itemize
+Approach 2: Manual conversion to 
+\emph on
+tail calls
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Key: Convert recursive calls to 
+\emph on
+tail calls
+\emph default
+ (function call as last statement)
+\end_layout
+
+\begin_layout Enumerate
+Enclose function body in 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+while True:
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Replace recursive tail call 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+f(x=x1, y=y1, ...)
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+ with 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+x, y, ...
+ = x1, y1, ...
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Clean up the code
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Demo: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook on recursive functions"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-recursive-functions.ipynb"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Lambda Functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Lambda functions as disposable, nameless functions
+\end_layout
+
+\begin_layout Itemize
+For example:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+g = lambda x: x**2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which is equivalent to 
+\family typewriter
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+def g (x):
+\end_layout
+
+\begin_layout Plain Layout
+
+    return x**2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lambda functions are often used as arguments to other functions (such as
+ 
+\family typewriter
+sort
+\family default
+ and 
+\family typewriter
+filter
+\family default
+)
+\end_layout
+
+\begin_layout Itemize
+Lambda functions also have their own call frames
+\end_layout
+
+\begin_layout Itemize
+Demo: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook on Lambda functions"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-lambda-functions.ipynb"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Style Guide for Python Code
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Most projects use 
+\begin_inset CommandInset href
+LatexCommand href
+name "PEP 8 style"
+target "https://www.python.org/dev/peps/pep-0008/"
+
+\end_inset
+
+; most editors enforce it automatically
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+4-space indentation
+\series default
+, and no tabs.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Wrap lines
+\series default
+ so that they don’t exceed 79 characters; long lines can be broken with
+ the 
+\backslash
+ character
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+blank lines
+\series default
+ to separate functions and classes, and larger blocks of code inside functions.
+\end_layout
+
+\begin_layout Itemize
+When possible, put 
+\series bold
+comments
+\series default
+ on a line of their own.
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+docstrings
+\series default
+ for the help system.
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+spaces
+\series default
+ around operators and after commas, but not directly inside bracketing construct
+s: a = f(1, 2) + g(3, 4).
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+lower_case_with_underscores
+\series default
+ for functions and method; (use 
+\series bold
+CamelCase
+\series default
+ for classes)
+\end_layout
+
+\begin_layout Itemize
+Don’t use fancy encodings unless you have to; don’t use non-ASCII characters
+ in identifiers
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

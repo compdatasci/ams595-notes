@@ -1,0 +1,1082 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{Boadilla}
+  
+\setbeamertemplate{footline}
+{\leavevmode
+\hbox{\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+\usebeamerfont{author in head/ foot}
+\insertshortauthor
+\end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{title  in head/foot}
+\usebeamerfont{title in head/foot}
+Numerical Analysis I \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+\usebeamerfont{date in head/foot}
+\hspace*{2em} 
+\insertframenumber{} / \inserttotalframenumber\hspace*{2em}
+\end{beamercolorbox}}
+\vskip0pt
+}
+\setbeamertemplate{navigation symbols}{} 
+
+\usepackage{algorithmic}
+%\def\vec#1{\mbox{\boldmath $#1$}}
+\def\vec#1{#1}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+AMS 595/691: Fundamentals of Computing: Part II
+\end_layout
+
+\begin_layout Subtitle
+Lecture 5: Scripts and Modules;
+\begin_inset Newline newline
+\end_inset
+
+Debugging and Testing
+\end_layout
+
+\begin_layout Author
+Xiangmin Jiao
+\end_layout
+
+\begin_layout Institute
+Stony Brook University
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Python Scripts
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Python scripts have suffix 
+\begin_inset Quotes eld
+\end_inset
+
+.py
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Scripts can use any control flow, contain function definitions, and its
+ own docstring
+\end_layout
+
+\begin_layout Itemize
+You can create and edit Python scripts using
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+any text editor with syntax highlighting (e.g., 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "vi"
+target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
+
+\end_inset
+
+
+\color inherit
+ or 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "emacs"
+target "https://ccrma.stanford.edu/guides/package/emacs/emacs.html"
+
+\end_inset
+
+
+\color inherit
+ on UNIX),
+\end_layout
+
+\begin_layout Itemize
+IDE environment (such as 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Spyder"
+target "https://pythonhosted.org/spyder/"
+
+\end_inset
+
+
+\color inherit
+ or 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "PyCharm"
+target "https://www.jetbrains.com/pycharm/"
+
+\end_inset
+
+
+\color inherit
+), or
+\end_layout
+
+\begin_layout Itemize
+an online editor (e.g., 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter notebook"
+target "https://tmpnb.org"
+
+\end_inset
+
+
+\color inherit
+)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You can run Python script in different ways
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In IPython: 
+\family typewriter
+%run test.py
+\end_layout
+
+\begin_layout Itemize
+In UNIX shell or Windows command prompt: 
+\family typewriter
+python test.py
+\end_layout
+
+\begin_layout Itemize
+To run script as standalone program:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+set the file's executable bit using 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+chmod a+x test.py
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+make the first line
+\family typewriter
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#!/usr/bin/env python
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Practice 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Copy and paste 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "this code"
+target "http://www.pythontutor.com/live.html#code=%23!/usr/bin/env%20python%0A%0A'''%0AA%20simple%20test%20script.%0A'''%0A%0Amessage%20%3D%20%22Hello%20how%20are%20you%3F%22%0A%0Afor%20word%20in%20message.split(%29%3A%0A%20%20%20%20print(word%29&cumulative=false&curInstr=11&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+
+\end_inset
+
+
+\color inherit
+ into editor, save it, and run it in Linux shell
+\end_layout
+
+\begin_layout Itemize
+For quick start with editors, see these cheat sheets: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "vi"
+target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
+
+\end_inset
+
+
+\color inherit
+ and 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "emacs"
+target "https://ccrma.stanford.edu/guides/package/emacs/emacs.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Interaction with UNIX Shell
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Standalone scripts may take command-line arguments via 
+\family typewriter
+sys.argv
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+sys.argv
+\family default
+ is a list of strings 
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+sys.argv[0]
+\family default
+ is command name
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+To prompt user to type at runtime, use 
+\family typewriter
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+input('message')
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Use 
+\family typewriter
+sys.exit(code)
+\family default
+ to return error code back to unix system
+\end_layout
+
+\begin_layout Itemize
+Practice
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Copy and paste 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "the code"
+target "http://www.pythontutor.com/live.html#code=%23!/usr/bin/env%20python%0A%0A%22%22%22%0AUsage%3A%20test_argv.py%0A%0AThis%20describes%20the%20script.%0A%22%22%22%0A%0Aimport%20sys%0A%0A%0Adef%20try_argv(%29%3A%0A%20%20%20%20'''Try%20sys.argv'''%0A%20%20%20%20for%20i,%20word%20in%20enumerate(sys.argv%29%3A%0A%20%20%20%20%20%20%20%20print('argv%5B%7B%7D%5D%20is%20%7B%7D'.format(i,%20word%29%29%0A%0A%0Adef%20try_input(msg%29%3A%0A%20%20%20%20'''Try%20to%20use%20the%20input%20command'''%0A%0A%20%20%20%20str%20%3D%20input(msg%29%0A%20%20%20%20if%20str%20%3D%3D%20'quit'%3A%0A%20%20%20%20%20%20%20%20sys.exit(0%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20try%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sys.exit(int(str%29%29%0A%20%20%20%20%20%20%20%20except%20ValueError%20as%20detail%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print('ValueError%3A%20',%20detail%29%0A%0Atry_argv(%29%0A%0Awhile%20True%3A%0A%20%20%20%20try_input('Type%20quit%20or%20an%20integer%20to%20exit%3A%20'%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+
+\end_inset
+
+
+\color inherit
+ into an editor and save it as test_argv.py
+\end_layout
+
+\begin_layout Itemize
+Set its executable bit, run it in Linux shell using command
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+./test_argv.py 123 abc def "abc def"
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Run UNIX command 
+\begin_inset Quotes eld
+\end_inset
+
+echo $?
+\begin_inset Quotes erd
+\end_inset
+
+ to see error code
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+For quick start with Linux, see
+\color blue
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "this cheat sheet"
+target "http://ryanstutorials.net/linuxtutorial/cheatsheet.php"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Python Modules
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Objects can be organized into modules
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Objects can be variables, functions, and classes (later)
+\end_layout
+
+\begin_layout Itemize
+Modules improves 
+\emph on
+modularity
+\emph default
+ for better organization of large programs
+\end_layout
+
+\begin_layout Itemize
+Modules improves 
+\emph on
+reusability
+\emph default
+ of codes
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Python modules are similarly to scripts, but can be imported by other codes
+\end_layout
+
+\begin_layout Itemize
+A module has its own namespace, and needs to be imported
+\end_layout
+
+\begin_layout Itemize
+Note: Modules are cached
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If you modify a module and re-import it in the old session, you will get
+ the old one
+\end_layout
+
+\begin_layout Itemize
+To reload module in Python3, run
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+import importlib
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+importlib.reload(demo)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Practice:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Copy and paste 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "this code"
+target "http://www.pythontutor.com/live.html#code=%22A%20demo%20module.%22%0A%0Adef%20print_b(%29%3A%0A%20%20%20%20%22Prints%20b.%22%0A%20%20%20%20print('b'%29%0A%0Adef%20print_a(%29%3A%0A%20%20%20%20%22Prints%20a.%22%0A%20%20%20%20print('a'%29%0A%0A%0Ac%20%3D%202%0Ad%20%3D%202%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+
+\end_inset
+
+
+\color inherit
+ into an editor and save it as 
+\family typewriter
+demo.py
+\end_layout
+
+\begin_layout Itemize
+In IPython, try commands 
+\family typewriter
+import demo; demo?; dir(demo); demo.print_a(); demo.print_b()
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Scripts or Modules?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Rule of thumb
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sets of instructions that are called several times should be written inside
+ functions for better code reusability
+\end_layout
+
+\begin_layout Itemize
+Functions (or other bits of code) that are called from several scripts should
+ be written inside a module, so that only the module is imported in the
+ different scripts (do not copy-and-paste your functions in the different
+ scripts!)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A module can also be a script itself
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Put statements other than variable/function/class definitions within block
+ enclosed with
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+if __name__ == '__main__':
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It is particularly useful to embed test scripts for the module in the file
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Practice:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Copy and paste 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "this code"
+target "http://www.pythontutor.com/live.html#code=%22A%20demo%20module.%22%0A%0Adef%20print_b(%29%3A%0A%20%20%20%20%22Prints%20b.%22%0A%20%20%20%20print('b'%29%0A%0Adef%20print_a(%29%3A%0A%20%20%20%20%22Prints%20a.%22%0A%20%20%20%20print('a'%29%0A%0A%23%20print_b(%29%20runs%20on%20import%0Aprint_b(%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20%23%20print_a(%29%20is%20only%20executed%20when%20the%20module%20is%20run%20directly.%0A%20%20%20%20print_a(%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+
+\end_inset
+
+
+\color inherit
+ into an editor and save it as demo2.py
+\end_layout
+
+\begin_layout Itemize
+Try 
+\family typewriter
+import demo
+\family default
+ and 
+\family typewriter
+%run demo2
+\family default
+ in IPython
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Interactive Debugger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Command-line debugger: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "pdb"
+target "https://docs.python.org/3/library/pdb.html"
+
+\end_inset
+
+
+\color inherit
+, similar to gdb for C/C++
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Start up in command-line:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+python -m pdb test.py <args>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Useful commands: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+run
+\family default
+, 
+\family typewriter
+next
+\family default
+, 
+\family typewriter
+step
+\family default
+, 
+\family typewriter
+break
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+where
+\family default
+, 
+\family typewriter
+up
+\family default
+, 
+\family typewriter
+down
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+p <expression>
+\family default
+, 
+\family typewriter
+display <expression>
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Another common use is to insert the statements 
+\family typewriter
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import pdb; pdb.set_trace()
+\end_layout
+
+\end_inset
+
+
+\family default
+to Python code where you want to break into pdb
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Use 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Spyder"
+target "https://pythonhosted.org/spyder/debugging.html"
+
+\end_inset
+
+
+\color inherit
+ to debug, which has integrated GUI support for 
+\family typewriter
+pdb
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use menu items to specify command-line arguments
+\end_layout
+
+\begin_layout Itemize
+Double-click on line number to set breakpoints
+\end_layout
+
+\begin_layout Itemize
+Use icons to use run/debug, next, step, etc.
+\end_layout
+
+\begin_layout Itemize
+Use variable explorer to inspect or change variables
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Search Path and Directories of Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+When import statement is executed, modules are searched in:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+installation-dependent default path (e.g., /usr/lib/python)
+\end_layout
+
+\begin_layout Itemize
+list of directories specified by environment variable 
+\family typewriter
+PYTHONPATH
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+List of directories searched by Python is given by 
+\family typewriter
+sys.path
+\family default
+ variable
+\end_layout
+
+\begin_layout Itemize
+To modify search path:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In UNIX, add following to 
+\family typewriter
+~/.bashrc
+\family default
+ (assuming you use bash)
+\family typewriter
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export PYTHONPATH=$PYTHONPATH:/user/defined/path
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+or append path to 
+\family typewriter
+sys.path
+\family default
+ variable within Python script
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import sys
+\end_layout
+
+\begin_layout Plain Layout
+
+new_path = '/home/username/user_defined_modules'
+\end_layout
+
+\begin_layout Plain Layout
+
+if new_path not in sys.path:
+\end_layout
+
+\begin_layout Plain Layout
+
+    sys.path.append(new_path) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Modules can also be organized into a 
+\emph on
+package
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Package is a directory containing 
+\family typewriter
+__init__.py
+\family default
+ file
+\end_layout
+
+\begin_layout Itemize
+Package can have subpackages (subdirectories with 
+\family typewriter
+__init__.py
+\family default
+ file)
+\end_layout
+
+\begin_layout Itemize
+For example, 
+\family typewriter
+numpy
+\family default
+, 
+\family typewriter
+scipy
+\family default
+, 
+\family typewriter
+scipy.ndimage
+\family default
+ are all packages
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document

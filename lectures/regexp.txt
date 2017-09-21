@@ -1,0 +1,5 @@
+https://developers.google.com/edu/python/regular-expressions
+
+http://xyala2.bio.ed.ac.uk/teaching/bioinformatics/python_for_bioinformatics/session4.html
+
+http://sebastianraschka.com/notebooks/python-notebooks.html

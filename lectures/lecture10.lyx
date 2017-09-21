@@ -1,0 +1,922 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{Boadilla}
+  
+\setbeamertemplate{footline}
+{\leavevmode
+\hbox{\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}
+\usebeamerfont{author in head/ foot}
+\insertshortauthor
+\end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,center]{title  in head/foot}
+\usebeamerfont{title in head/foot}
+Numerical Analysis I \end{beamercolorbox}\begin{beamercolorbox}[wd=.333333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}
+\usebeamerfont{date in head/foot}
+\hspace*{2em} 
+\insertframenumber{} / \inserttotalframenumber\hspace*{2em}
+\end{beamercolorbox}}
+\vskip0pt
+}
+\setbeamertemplate{navigation symbols}{} 
+
+\usepackage{algorithmic}
+%\def\vec#1{\mbox{\boldmath $#1$}}
+\def\vec#1{#1}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+AMS 595: Fundamentals of Computing (Python Unit)
+\end_layout
+
+\begin_layout Subtitle
+Lecture 10: Advanced Topics: 
+\begin_inset Newline newline
+\end_inset
+
+Packaging; Extending Python with C
+\end_layout
+
+\begin_layout Author
+Xiangmin Jiao
+\end_layout
+
+\begin_layout Institute
+Stony Brook University
+\end_layout
+
+\begin_layout Date
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AtBeginSection[]{
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+frame<beamer>{
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+frametitle{Outline}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+tableofcontents[currentsection] 
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+beamerdefaultoverlayspecification{<+->}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Modules and Packaging
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+More about Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use 
+\begin_inset Quotes eld
+\end_inset
+
+import file_base_name
+\begin_inset Quotes erd
+\end_inset
+
+ to access a module
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Module's name is available as __name__ in the module
+\end_layout
+
+\begin_layout Itemize
+Separate namespace by default
+\end_layout
+
+\begin_layout Itemize
+If run as “python modulename.py args” then __name__ is set 
+\begin_inset Quotes eld
+\end_inset
+
+to __main__
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Just like UNIX has a path that it searches, in order, for an executable,
+ python uses this to find modules.
+ Search order:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Current directory
+\end_layout
+
+\begin_layout Itemize
+PYTHONPATH environment variable
+\end_layout
+
+\begin_layout Itemize
+System-wide python installation default path
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+sys.path will show the path
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Useful Facts about Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Private
+\begin_inset Quotes erd
+\end_inset
+
+ variables in a module
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+“from modulename import *” imports all variables and functions in the module,
+ except for any names starting with “_”
+\end_layout
+
+\begin_layout Itemize
+If you change a module, you can re-import it as: 
+\begin_inset Quotes eld
+\end_inset
+
+reload(modulename)
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Python is interpreted, but it creates byte-code files (.pyc instead of .py)
+ when a module is first imported
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This speeds up the loading of the module—it does not change the speed of
+ execution 
+\end_layout
+
+\begin_layout Itemize
+.pyc is automatically recreated based on the file modification times
+\end_layout
+
+\begin_layout Itemize
+Note that .pyc files are not, in general, portable
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Packaging of Python Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Often you separate a project into multiple files / directories
+\end_layout
+
+\begin_layout Itemize
+Example from python docs:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename packaging.png
+	lyxscale 30
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Packaging of Python Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You can do:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+import sound.effects.echo (just get that single module)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Access as sound.effects.echo.echofilter(...)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+from sound.effects import echo
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Access as echo.echofilter(...) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+from sound.effects.echo import echofilter (make that specific function available)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Access as echofilter(...)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+In order to do from sound.effects import *, we need to define what we mean
+ by all
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The package should have an __init__.py file—this tells python that a directory
+ contains packages
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Can be empty, but needs to be present (example with our previous module)
+\end_layout
+
+\begin_layout Itemize
+Set __all__ to the list of modules that should be imported by default
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Packaging of Python Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The main purpose of packaging is to put your python module in a system-wide
+ location for you can import it from other python modules
+\end_layout
+
+\begin_layout Itemize
+If you are just writing a simple script that will not be used by other python
+ modules, then you don't need to worry about packaging— just distribute
+ the source 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Same for a more complex, but still standalone python program.
+\end_layout
+
+\begin_layout Itemize
+As seen in the path, there is a system-wide location and user-specific location
+ × the number of python versions
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Some example cases:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+You have a single .py (mymodule.py) file that you want people to be able to
+ import.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This will be placed in the main library directory, like: /usr/lib/python2.7/site-
+packages/
+\end_layout
+
+\begin_layout Itemize
+You can then just import mymodule
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+You have extension modules for your application, and you want to make it
+ easy on the user
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Packaging of Python Modules
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+There are several different options for packaging your python code for other
+ users 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Unfortunately, these appear to be in a state of flux at the moment
+\end_layout
+
+\begin_layout Itemize
+distutils and setup.py makes writing extensions easy
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Main methods (at the moment):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "distutils"
+target "https://docs.python.org/3/distutils/introduction.html"
+
+\end_inset
+
+
+\color inherit
+: this is part of python (2 and 3)
+\end_layout
+
+\begin_layout Itemize
+setuptools: newer than distutils, offers more functionality.
+ Introduced easy_install, and setuptools module to import into setup.py
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+distutils
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Simple example (from their docs):
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We want to distribute foo.py
+\end_layout
+
+\begin_layout Itemize
+setup.py:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+from distutils.core import setup
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+setup(name='foo',
+\end_layout
+
+\begin_layout Plain Layout
+
+      version='1.0',
+\end_layout
+
+\begin_layout Plain Layout
+
+      py_modules=['foo'],)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Keyword arguments to setup() are metadata and the list of modules that comprise
+ the package
+\end_layout
+
+\begin_layout Itemize
+Create source distribution: python setup.py sdist
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Creates a .tar.gz (or .zip)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Install the package: python setup.py install 
+\end_layout
+
+\begin_layout Itemize
+Commands exist for creating Windows executable installers, RPMs, … 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+See python setup.py bdist --help-formats
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Section
+Extending Python with C
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Interoperability with C
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In contrast to Python, which is interpreted, C is a compiled language
+\end_layout
+
+\begin_layout Itemize
+There are primarily two reasons to use C code from Python
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Speed up the code
+\end_layout
+
+\begin_layout Itemize
+Reuse existing codes
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Extension Methods
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "C-API"
+target "https://docs.python.org/3/c-api/"
+
+\end_inset
+
+
+\color inherit
+ for writing extension modules in Python or embed Python in C
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "ctypes"
+target "https://docs.python.org/3/library/ctypes.html"
+
+\end_inset
+
+
+\color inherit
+: a module that allows you to call functions in shared libraries 
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "SWIG"
+target "http://www.swig.org/"
+
+\end_inset
+
+
+\color inherit
+: simplified wrappers and interface generator
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Cython"
+target "http://cython.org/"
+
+\end_inset
+
+
+\color inherit
+ is an optimizing static compiler for both Python and extended Cython and
+ can convert python into compiled C code
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Cython is often where you should start
+\end_layout
+
+\begin_layout Standard
+Readings: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Interface with C"
+target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html"
+
+\end_inset
+
+
+\color inherit
+ by Haenel as part of SciPy lecture notes
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Speeding Up Python
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let's look at performance of these different extensions.
+\end_layout
+
+\begin_layout Itemize
+Consider an example of solving Laplace's equation using Gauss-Seidel iteration
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+pure python: 10.9347379208 s
+\end_layout
+
+\begin_layout Plain Layout
+
+NumPy: 0.0756549835205 s
+\end_layout
+
+\begin_layout Plain Layout
+
+Cython: 0.0472810268402 s
+\end_layout
+
+\begin_layout Plain Layout
+
+ctypes: 0.149159908295 s
+\end_layout
+
+\begin_layout Plain Layout
+
+C-API: 0.0446910858154 s
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Using Cython
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Following 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "examples here"
+target " http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html#id10"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
