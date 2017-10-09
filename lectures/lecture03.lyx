@@ -837,11 +837,11 @@ Use
 \series bold
 lower_case_with_underscores
 \series default
- for functions and method; (use 
+ for functions and methods; use 
 \series bold
 CamelCase
 \series default
- for classes)
+ for classes
 \end_layout
 
 \begin_layout Itemize
