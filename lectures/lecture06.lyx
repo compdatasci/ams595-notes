@@ -286,7 +286,15 @@ NumPy has a matrix class, which is a subclass of array
 
 \begin_deeper
 \begin_layout Itemize
-* are matrix-matrix multiplication
+For matrix objects, A*B is matrix-matrix multiplication
+\end_layout
+
+\begin_layout Itemize
+For array objects, A*B is element-wise multiplication
+\end_layout
+
+\begin_layout Itemize
+Note: However, A/B is still element-wise division for matrix objects
 \end_layout
 
 \end_deeper
@@ -296,7 +304,7 @@ See
 
 \begin_inset CommandInset href
 LatexCommand href
-name "Numpy for Matlab users"
+name "NumPy for MATLAB users"
 target "http://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html"
 
 \end_inset
@@ -307,7 +315,7 @@ target "http://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html"
 \end_layout
 
 \begin_layout Itemize
-Many linear-algebra functions are provided SciPy (next lecture)
+Many linear-algebra functions are provided by SciPy (next lecture)
 \end_layout
 
 \begin_layout Itemize
@@ -441,7 +449,7 @@ target "http://matplotlib.org/"
 
 \begin_deeper
 \begin_layout Itemize
-Mostly for 2-d data
+Mostly for 2-D data
 \end_layout
 
 \begin_layout Itemize
@@ -493,6 +501,12 @@ pylab combines pyplot and numpy into a single namespace to provide MATLAB-like
 \end_layout
 
 \end_deeper
+\begin_layout Itemize
+In Jupyter Notebook, make sure you add
+\family typewriter
+ %matplotlib inline
+\end_layout
+
 \begin_layout Itemize
 See 
 \color blue
@@ -562,6 +576,8 @@ target "http://docs.scipy.org/doc/numpy/reference/generated/numpy.loadtxt.html"
 
 \begin_layout Itemize
 SciPy's 
+\color blue
+
 \begin_inset CommandInset href
 LatexCommand href
 name "scipy.io"
@@ -569,6 +585,8 @@ target "http://docs.scipy.org/doc/scipy/reference/tutorial/io.html"
 
 \end_inset
 
+
+\color inherit
  module provides methods to read and write MATLAB's MAT files, which are
  binary files
 \end_layout
