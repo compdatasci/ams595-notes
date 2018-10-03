@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -44,6 +44,8 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -81,7 +84,10 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -282,6 +288,7 @@ Demo:
 LatexCommand href
 name "Jupyter notebook on control flows"
 target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-control-flow.ipynb"
+literal "false"
 
 \end_inset
 
@@ -399,6 +406,7 @@ Demo:
 LatexCommand href
 name "Jupyter notebook on functions"
 target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-functions.ipynb"
+literal "false"
 
 \end_inset
 
@@ -453,11 +461,11 @@ global
 \end_layout
 
 \begin_layout Itemize
-Each function has their own namespaces
+Each function has its own namespace
 \end_layout
 
 \begin_layout Itemize
-Within a function, if a variable is not found local scope, Python searches
+Within a function, if a variable is not found in local scope, Python searches
  the variable in its enclosing scope (e.g., the global namespace of the module
  containing the function)
 \end_layout
@@ -486,6 +494,7 @@ To learn more about scope, see
 LatexCommand href
 name "Python documentation"
 target "https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces"
+literal "false"
 
 \end_inset
 
@@ -533,6 +542,7 @@ Function calls involve creating and maintaining stack frames (see
 LatexCommand href
 name "visualization"
 target "http://www.pythontutor.com/visualize.html#code=def%20sumList(theList%29%3A%0A%20%20%20%20if%20(theList%3D%3D%5B%5D%29%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20theList%5B0%5D%20%2B%20sumList(theList%5B1%3A%5D%29%0A%0A%0Adef%20go(%29%3A%0A%20%20%20%20total%20%3D%20sumList(%5B10,%2020,%2030%5D%29%0A%20%20%20%20print(%22total%3D%22,%20total%29%0A%0A%0Ago(%29%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+literal "false"
 
 \end_inset
 
@@ -635,6 +645,7 @@ Demo:
 LatexCommand href
 name "Jupyter notebook on recursive functions"
 target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-recursive-functions.ipynb"
+literal "false"
 
 \end_inset
 
@@ -736,6 +747,7 @@ Demo:
 LatexCommand href
 name "Jupyter notebook on Lambda functions"
 target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/python-lambda-functions.ipynb"
+literal "false"
 
 \end_inset
 
@@ -774,6 +786,7 @@ Most projects use
 LatexCommand href
 name "PEP 8 style"
 target "https://www.python.org/dev/peps/pep-0008/"
+literal "false"
 
 \end_inset
 
