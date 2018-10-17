@@ -305,7 +305,7 @@ See
 \begin_inset CommandInset href
 LatexCommand href
 name "NumPy for MATLAB users"
-target "http://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html"
+target "https://docs.scipy.org/doc/numpy-1.15.0/user/numpy-for-matlab-users.htm"
 
 \end_inset
 
