@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -44,6 +44,8 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -81,7 +84,10 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -575,6 +581,7 @@ Main methods (at the moment):
 LatexCommand href
 name "distutils"
 target "https://docs.python.org/3/distutils/introduction.html"
+literal "false"
 
 \end_inset
 
@@ -739,6 +746,7 @@ Extension Methods
 LatexCommand href
 name "C-API"
 target "https://docs.python.org/3/c-api/"
+literal "false"
 
 \end_inset
 
@@ -754,6 +762,7 @@ target "https://docs.python.org/3/c-api/"
 LatexCommand href
 name "ctypes"
 target "https://docs.python.org/3/library/ctypes.html"
+literal "false"
 
 \end_inset
 
@@ -769,6 +778,7 @@ target "https://docs.python.org/3/library/ctypes.html"
 LatexCommand href
 name "SWIG"
 target "http://www.swig.org/"
+literal "false"
 
 \end_inset
 
@@ -784,6 +794,7 @@ target "http://www.swig.org/"
 LatexCommand href
 name "Cython"
 target "http://cython.org/"
+literal "false"
 
 \end_inset
 
@@ -806,6 +817,7 @@ Readings:
 LatexCommand href
 name "Interface with C"
 target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html"
+literal "false"
 
 \end_inset
 
@@ -910,7 +922,8 @@ Following
 \begin_inset CommandInset href
 LatexCommand href
 name "examples here"
-target " http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html#id10"
+target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html#id10"
+literal "false"
 
 \end_inset
 

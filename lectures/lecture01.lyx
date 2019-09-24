@@ -371,25 +371,6 @@ literal "false"
  
 \end_layout
 
-\begin_layout Itemize
-Try on 
-\color blue
-
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://mybinder.org/
-\end_layout
-
-\end_inset
-
-
-\color inherit
-, select new–>terminal, and run commands python2.7, python3.5, and ipython
-\end_layout
-
 \end_deeper
 \begin_layout Itemize
 External GUI environments are available for Python, such as
@@ -536,22 +517,7 @@ path
 
 \end_deeper
 \begin_layout Itemize
-Start a python shell at 
-\color blue
-
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://mybinder.org/
-\end_layout
-
-\end_inset
-
-
-\color inherit
-, and run:
+Start a python shell and run:
 \begin_inset Separator latexpar
 \end_inset
 
