@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -44,6 +44,8 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -73,6 +75,7 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -81,7 +84,10 @@ Fundamentals of Computing \end{beamercolorbox}\begin{beamercolorbox}[wd=.3333333
 \tocdepth 2
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -236,6 +242,7 @@ any text editor with syntax highlighting (e.g.,
 LatexCommand href
 name "vi"
 target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
+literal "false"
 
 \end_inset
 
@@ -248,6 +255,7 @@ target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
 LatexCommand href
 name "emacs"
 target "https://ccrma.stanford.edu/guides/package/emacs/emacs.html"
+literal "false"
 
 \end_inset
 
@@ -264,6 +272,7 @@ IDE environment (such as
 LatexCommand href
 name "Spyder"
 target "https://pythonhosted.org/spyder/"
+literal "false"
 
 \end_inset
 
@@ -276,6 +285,7 @@ target "https://pythonhosted.org/spyder/"
 LatexCommand href
 name "PyCharm"
 target "https://www.jetbrains.com/pycharm/"
+literal "false"
 
 \end_inset
 
@@ -292,6 +302,7 @@ an online editor (e.g.,
 LatexCommand href
 name "Jupyter notebook"
 target "https://tmpnb.org"
+literal "false"
 
 \end_inset
 
@@ -372,6 +383,7 @@ Copy and paste
 LatexCommand href
 name "this code"
 target "http://www.pythontutor.com/live.html#code=%23!/usr/bin/env%20python%0A%0A'''%0AA%20simple%20test%20script.%0A'''%0A%0Amessage%20%3D%20%22Hello%20how%20are%20you%3F%22%0A%0Afor%20word%20in%20message.split(%29%3A%0A%20%20%20%20print(word%29&cumulative=false&curInstr=11&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+literal "false"
 
 \end_inset
 
@@ -388,6 +400,7 @@ For quick start with editors, see these cheat sheets:
 LatexCommand href
 name "vi"
 target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
+literal "false"
 
 \end_inset
 
@@ -400,6 +413,7 @@ target "http://ryanstutorials.net/linuxtutorial/cheatsheetvi.php"
 LatexCommand href
 name "emacs"
 target "https://ccrma.stanford.edu/guides/package/emacs/emacs.html"
+literal "false"
 
 \end_inset
 
@@ -476,7 +490,7 @@ Use
 \family typewriter
 sys.exit(code)
 \family default
- to return error code back to unix system
+ to return error code back to UNIX system
 \end_layout
 
 \begin_layout Itemize
@@ -492,6 +506,7 @@ Copy and paste
 LatexCommand href
 name "the code"
 target "http://www.pythontutor.com/live.html#code=%23!/usr/bin/env%20python%0A%0A%22%22%22%0AUsage%3A%20test_argv.py%0A%0AThis%20describes%20the%20script.%0A%22%22%22%0A%0Aimport%20sys%0A%0A%0Adef%20try_argv(%29%3A%0A%20%20%20%20'''Try%20sys.argv'''%0A%20%20%20%20for%20i,%20word%20in%20enumerate(sys.argv%29%3A%0A%20%20%20%20%20%20%20%20print('argv%5B%7B%7D%5D%20is%20%7B%7D'.format(i,%20word%29%29%0A%0A%0Adef%20try_input(msg%29%3A%0A%20%20%20%20'''Try%20to%20use%20the%20input%20command'''%0A%0A%20%20%20%20str%20%3D%20input(msg%29%0A%20%20%20%20if%20str%20%3D%3D%20'quit'%3A%0A%20%20%20%20%20%20%20%20sys.exit(0%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20try%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20sys.exit(int(str%29%29%0A%20%20%20%20%20%20%20%20except%20ValueError%20as%20detail%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print('ValueError%3A%20',%20detail%29%0A%0Atry_argv(%29%0A%0Awhile%20True%3A%0A%20%20%20%20try_input('Type%20quit%20or%20an%20integer%20to%20exit%3A%20'%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+literal "false"
 
 \end_inset
 
@@ -542,6 +557,7 @@ For quick start with Linux, see
 LatexCommand href
 name "this cheat sheet"
 target "http://ryanstutorials.net/linuxtutorial/cheatsheet.php"
+literal "false"
 
 \end_inset
 
@@ -584,7 +600,7 @@ Objects can be variables, functions, and classes (later)
 \end_layout
 
 \begin_layout Itemize
-Modules improves 
+Modules improve 
 \emph on
 modularity
 \emph default
@@ -592,7 +608,7 @@ modularity
 \end_layout
 
 \begin_layout Itemize
-Modules improves 
+Modules improve 
 \emph on
 reusability
 \emph default
@@ -650,6 +666,7 @@ Copy and paste
 LatexCommand href
 name "this code"
 target "http://www.pythontutor.com/live.html#code=%22A%20demo%20module.%22%0A%0Adef%20print_b(%29%3A%0A%20%20%20%20%22Prints%20b.%22%0A%20%20%20%20print('b'%29%0A%0Adef%20print_a(%29%3A%0A%20%20%20%20%22Prints%20a.%22%0A%20%20%20%20print('a'%29%0A%0A%0Ac%20%3D%202%0Ad%20%3D%202%0A&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+literal "false"
 
 \end_inset
 
@@ -747,6 +764,7 @@ Copy and paste
 LatexCommand href
 name "this code"
 target "http://www.pythontutor.com/live.html#code=%22A%20demo%20module.%22%0A%0Adef%20print_b(%29%3A%0A%20%20%20%20%22Prints%20b.%22%0A%20%20%20%20print('b'%29%0A%0Adef%20print_a(%29%3A%0A%20%20%20%20%22Prints%20a.%22%0A%20%20%20%20print('a'%29%0A%0A%23%20print_b(%29%20runs%20on%20import%0Aprint_b(%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20%23%20print_a(%29%20is%20only%20executed%20when%20the%20module%20is%20run%20directly.%0A%20%20%20%20print_a(%29&cumulative=false&curInstr=0&heapPrimitives=false&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+literal "false"
 
 \end_inset
 
@@ -798,6 +816,7 @@ Command-line debugger:
 LatexCommand href
 name "pdb"
 target "https://docs.python.org/3/library/pdb.html"
+literal "false"
 
 \end_inset
 
@@ -900,6 +919,7 @@ Use
 LatexCommand href
 name "Spyder"
 target "https://pythonhosted.org/spyder/debugging.html"
+literal "false"
 
 \end_inset
 
