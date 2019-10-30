@@ -109,7 +109,7 @@ Lecture 10: Advanced Topics:
 \begin_inset Newline newline
 \end_inset
 
-Packaging; Extending Python with C
+Performance Optimization; Packaging
 \end_layout
 
 \begin_layout Author
@@ -190,6 +190,304 @@ beamerdefaultoverlayspecification{<+->}
 
 \end_layout
 
+\begin_layout Section
+Performance Optimization
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Basics of Performance Optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Python is interpreted, and it is expected to be performative than compiled
+ languages, such as C/C++
+\end_layout
+
+\begin_layout Itemize
+There are two general approaches to speed up Python
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Speed up pure Python code using a just-in-time (JIT) compiler
+\end_layout
+
+\begin_layout Enumerate
+Use C/C++ for some time-intensive kernels
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+An excellent example of the first approach is to use 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Numba"
+target "https://numba.pydata.org/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An excellent example of the second approach is to use 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Cython"
+target "http://cython.org/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Speeding Up Python Using Numba
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Numba"
+target "https://numba.pydata.org/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ is an open-source JIT compiler that translates a subset of Python and NumPy
+ code into fast machine code
+\end_layout
+
+\begin_layout Itemize
+The following Jupyter Notebooks are borrowed from official Numba demos
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Numba Basics"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/numba-basics.ipynb"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Using Numba with Numpy"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/numba-numpy.ipynb"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Multithreading with Numba"
+target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/numba-threads.ipynb"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Using Cython and Other Methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Cython"
+target "http://cython.org/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ is an optimizing static compiler for both Python and extended Cython and
+ can convert python into compiled C code
+\end_layout
+
+\begin_layout Itemize
+Following 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "examples here"
+target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html#id10"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Other Methods
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "SWIG"
+target "http://www.swig.org/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+: simplified wrappers and interface generator
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "pybind11"
+target "https://pybind11.readthedocs.io/en/stable/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+: seemless interoperatity between C++11 and Python
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "ctypes"
+target "https://docs.python.org/3/library/ctypes.html"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+: calling functions in shared libraries
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "C-API"
+target "https://docs.python.org/3/c-api/"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ for writing extension modules in Python or embed Python in C
+\end_layout
+
+\begin_layout Standard
+See also: 
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Interface with C"
+target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html"
+literal "false"
+
+\end_inset
+
+
+\color inherit
+ by Haenel as part of SciPy lecture notes
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Section
 Modules and Packaging
 \end_layout
@@ -697,239 +995,6 @@ See python setup.py bdist --help-formats
 
 \end_deeper
 \end_deeper
-\end_deeper
-\begin_layout Section
-Extending Python with C
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Interoperability with C
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-In contrast to Python, which is interpreted, C is a compiled language
-\end_layout
-
-\begin_layout Itemize
-There are primarily two reasons to use C code from Python
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Speed up the code
-\end_layout
-
-\begin_layout Itemize
-Reuse existing codes
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Extension Methods
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "C-API"
-target "https://docs.python.org/3/c-api/"
-literal "false"
-
-\end_inset
-
-
-\color inherit
- for writing extension modules in Python or embed Python in C
-\end_layout
-
-\begin_layout Itemize
-
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "ctypes"
-target "https://docs.python.org/3/library/ctypes.html"
-literal "false"
-
-\end_inset
-
-
-\color inherit
-: a module that allows you to call functions in shared libraries 
-\end_layout
-
-\begin_layout Itemize
-
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "SWIG"
-target "http://www.swig.org/"
-literal "false"
-
-\end_inset
-
-
-\color inherit
-: simplified wrappers and interface generator
-\end_layout
-
-\begin_layout Itemize
-
-\color blue
-\begin_inset CommandInset href
-LatexCommand href
-name "Cython"
-target "http://cython.org/"
-literal "false"
-
-\end_inset
-
-
-\color inherit
- is an optimizing static compiler for both Python and extended Cython and
- can convert python into compiled C code
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Cython is often where you should start
-\end_layout
-
-\begin_layout Standard
-Readings: 
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "Interface with C"
-target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html"
-literal "false"
-
-\end_inset
-
-
-\color inherit
- by Haenel as part of SciPy lecture notes
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout FragileFrame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Speeding Up Python
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Let's look at performance of these different extensions.
-\end_layout
-
-\begin_layout Itemize
-Consider an example of solving Laplace's equation using Gauss-Seidel iteration
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset listings
-inline false
-status open
-
-\begin_layout Plain Layout
-
-pure python: 10.9347379208 s
-\end_layout
-
-\begin_layout Plain Layout
-
-NumPy: 0.0756549835205 s
-\end_layout
-
-\begin_layout Plain Layout
-
-Cython: 0.0472810268402 s
-\end_layout
-
-\begin_layout Plain Layout
-
-ctypes: 0.149159908295 s
-\end_layout
-
-\begin_layout Plain Layout
-
-C-API: 0.0446910858154 s
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Using Cython
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Following 
-\color blue
-
-\begin_inset CommandInset href
-LatexCommand href
-name "examples here"
-target "http://www.scipy-lectures.org/advanced/interfacing_with_c/interfacing_with_c.html#id10"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
 \end_deeper
 \end_body
 \end_document
