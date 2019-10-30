@@ -322,7 +322,7 @@ literal "false"
 \color blue
 \begin_inset CommandInset href
 LatexCommand href
-name "Using Numba with Numpy"
+name "Numpy Support in Numba"
 target "http://nbviewer.jupyter.org/url/www.ams.sunysb.edu/%7Ejiao/teaching/ams595/Notebooks/numba-numpy.ipynb"
 literal "false"
 
